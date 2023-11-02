@@ -7,8 +7,6 @@ import { nanoid } from 'nanoid';
 export class App extends Component {
   state = {
     contacts: [],
-    name: '',
-    number: '',
     filter: '',
   };
 
@@ -30,14 +28,9 @@ const { name, number } = newContact;
 
     const id = nanoid();
 
-    const contactToAdd = {
-      id,
-      name,
-      number,
-    };
-
+  
     this.setState(prevState => ({
-      contacts: [...prevState.contacts, contactToAdd],
+      contacts: [...prevState.contacts, {id, name, number}],
     }));
   };
 
